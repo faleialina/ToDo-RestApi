@@ -24,7 +24,9 @@ async function updateTaskDB(_id, task) {
 
 
 async function deleteTaskDB(_id) {
-    return await Table.deleteOne({ _id: new ObjectId(_id) });
+    await Table.deleteOne({ _id: new ObjectId(_id) });
+    const data = await Table.find();
+    return data;
 }
 
 

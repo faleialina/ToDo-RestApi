@@ -1,0 +1,201 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ToDo-RestApi",
+        "version": "1.0.0",
+        "description": "Server"
+    },
+    "paths": {
+        "/task": {
+            "get": {
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "get all task",
+                "description": "get all task",
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ имеет вид:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "65a574f658be0c749c11b284",
+                                        "taitle": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "404": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "create task",
+                "description": "",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "taitle": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ имеет вид:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "65a574f658be0c749c11b284",
+                                        "taitle": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task/{_id}": {
+            "get": {
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "get by id",
+                "description": "get by id",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ имеет вид:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "65a574f658be0c749c11b284",
+                                        "taitle": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "update by id",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "taitle": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ имеет вид:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "65a574f658be0c749c11b284",
+                                        "taitle": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "delete by id",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ имеет вид:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "65a574f658be0c749c11b284",
+                                        "taitle": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
