@@ -11,11 +11,11 @@
                 "tags": [
                     "TASK"
                 ],
-                "summary": "get all task",
-                "description": "get all task",
+                "summary": "to get all tasks",
+                "description": "to get all tasks from collection",
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ имеет вид:",
+                        "description": "success:",
                         "content": {
                             "application/json": {
                                 "example": [
@@ -36,8 +36,8 @@
                 "tags": [
                     "TASK"
                 ],
-                "summary": "create task",
-                "description": "",
+                "summary": "create new task",
+                "description": "create new task in task collection",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -58,7 +58,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ имеет вид:",
+                        "description": "success:",
                         "content": {
                             "application/json": {
                                 "example": [
@@ -72,7 +72,8 @@
                             }
                         }
                     }
-                }
+                },
+                "404": {}
             }
         },
         "/task/{_id}": {
@@ -80,8 +81,8 @@
                 "tags": [
                     "TASK"
                 ],
-                "summary": "get by id",
-                "description": "get by id",
+                "summary": "to get all tasks",
+                "description": "to get all tasks from collection",
                 "parameters": [
                     {
                         "name": "_id",
@@ -94,7 +95,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ имеет вид:",
+                        "description": "success:",
                         "content": {
                             "application/json": {
                                 "example": [
@@ -107,15 +108,16 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "404": {}
                 }
             },
             "put": {
                 "tags": [
                     "TASK"
                 ],
-                "summary": "update by id",
-                "description": "",
+                "summary": "update task",
+                "description": "update task by _id",
                 "parameters": [
                     {
                         "name": "_id",
@@ -146,7 +148,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ имеет вид:",
+                        "description": "success:",
                         "content": {
                             "application/json": {
                                 "example": [
@@ -159,15 +161,16 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "404": {}
                 }
             },
             "delete": {
                 "tags": [
                     "TASK"
                 ],
-                "summary": "delete by id",
-                "description": "",
+                "summary": "delete tasks by id",
+                "description": "delete a task from the collection task",
                 "parameters": [
                     {
                         "name": "_id",
@@ -180,7 +183,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ имеет вид:",
+                        "description": "success:",
                         "content": {
                             "application/json": {
                                 "example": [
@@ -193,7 +196,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "404": {}
                 }
             }
         }
