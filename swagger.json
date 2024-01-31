@@ -1,205 +1,195 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "ToDo-RestApi",
-        "version": "1.0.0",
-        "description": "Server"
-    },
-    "paths": {
-        "/task": {
-            "get": {
-                "tags": [
-                    "TASK"
-                ],
-                "summary": "to get all tasks",
-                "description": "to get all tasks from collection",
-                "responses": {
-                    "200": {
-                        "description": "success:",
-                        "content": {
-                            "application/json": {
-                                "example": [
-                                    {
-                                        "_id": "65a574f658be0c749c11b284",
-                                        "taitle": "test",
-                                        "description": "test",
-                                        "__v": 0
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    "404": {}
-                }
-            },
-            "post": {
-                "tags": [
-                    "TASK"
-                ],
-                "summary": "create new task",
-                "description": "create new task in task collection",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "taitle": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success:",
-                        "content": {
-                            "application/json": {
-                                "example": [
-                                    {
-                                        "_id": "65a574f658be0c749c11b284",
-                                        "taitle": "test",
-                                        "description": "test",
-                                        "__v": 0
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "404": {}
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ToDo-RestApi",
+    "version": "1.0.0",
+    "description": "Server"
+  },
+  "paths": {
+    "/task": {
+      "get": {
+        "tags": ["TASK"],
+        "summary": "to get all tasks",
+        "description": "to get all tasks from collection",
+        "responses": {
+          "200": {
+            "description": "success:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "65a574f658be0c749c11b284",
+                    "taitle": "test",
+                    "description": "test",
+                    "__v": 0
+                  }
+                ]
+              }
             }
-        },
-        "/task/{_id}": {
-            "get": {
-                "tags": [
-                    "TASK"
-                ],
-                "summary": "to get all tasks",
-                "description": "to get all tasks from collection",
-                "parameters": [
-                    {
-                        "name": "_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "success:",
-                        "content": {
-                            "application/json": {
-                                "example": [
-                                    {
-                                        "_id": "65a574f658be0c749c11b284",
-                                        "taitle": "test",
-                                        "description": "test",
-                                        "__v": 0
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    "404": {}
-                }
-            },
-            "put": {
-                "tags": [
-                    "TASK"
-                ],
-                "summary": "update task",
-                "description": "update task by _id",
-                "parameters": [
-                    {
-                        "name": "_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "taitle": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success:",
-                        "content": {
-                            "application/json": {
-                                "example": [
-                                    {
-                                        "_id": "65a574f658be0c749c11b284",
-                                        "taitle": "test",
-                                        "description": "test",
-                                        "__v": 0
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    "404": {}
-                }
-            },
-            "delete": {
-                "tags": [
-                    "TASK"
-                ],
-                "summary": "delete tasks by id",
-                "description": "delete a task from the collection task",
-                "parameters": [
-                    {
-                        "name": "_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "success:",
-                        "content": {
-                            "application/json": {
-                                "example": [
-                                    {
-                                        "_id": "65a574f658be0c749c11b284",
-                                        "taitle": "test",
-                                        "description": "test",
-                                        "__v": 0
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    "404": {}
-                }
-            }
+          },
+          "404": {}
         }
+      },
+      "post": {
+        "tags": ["TASK"],
+        "summary": "create new task",
+        "description": "create new task in task collection",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taitle": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "65a574f658be0c749c11b284",
+                    "taitle": "test",
+                    "description": "test",
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "404": {}
+      }
+    },
+    "/task/{_id}": {
+      "get": {
+        "tags": ["TASK"],
+        "summary": "to get all tasks",
+        "description": "to get all tasks from collection",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "65a574f658be0c749c11b284",
+                    "taitle": "test",
+                    "description": "test",
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {}
+        }
+      },
+      "put": {
+        "tags": ["TASK"],
+        "summary": "update task",
+        "description": "update task by _id",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taitle": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "65a574f658be0c749c11b284",
+                    "taitle": "test",
+                    "description": "test",
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {}
+        }
+      },
+      "delete": {
+        "tags": ["TASK"],
+        "summary": "delete tasks by id",
+        "description": "delete a task from the collection task",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "65a574f658be0c749c11b284",
+                    "taitle": "test",
+                    "description": "test",
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {}
+        }
+      }
     }
+  }
 }
