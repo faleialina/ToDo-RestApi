@@ -2,8 +2,23 @@ $purple_color: #6c63ff;
 $white_color: white;
 $purple_ligth_color: #C3C1E5;
 
+@mixin flex($fd, $ai, $gap) {
+    display: flex;
+    flex-direction: $fd;
+    align-items: $ai;
+    gap: $gap;
+}
+
+@mixin input_btn($border, $br, $pad) {
+    display: block;
+    border: $border;
+    border-radius: $br;
+    padding: $pad
+}
+
 
 .wrapper {
+    @include flex(column, center, 0);
     width: 750px;
     margin: 0 auto;
 
@@ -12,8 +27,10 @@ $purple_ligth_color: #C3C1E5;
     }
 
     .header {
+        @include flex(row, row, 15px);
 
         input {
+            @include input_btn(1px solid $purple_color, 5px, 10px 15px);
             outline: none;
 
             &:nth-child(1) {
@@ -28,6 +45,13 @@ $purple_ligth_color: #C3C1E5;
                 color: $purple_ligth_color;
             }
         }
+    }
+
+    button {
+        @include input_btn(1px solid $purple_color, 5px, 10px 15px);
+        background-color: $purple_color;
+        color: $white_color;
+        cursor: grab;
     }
 
 
