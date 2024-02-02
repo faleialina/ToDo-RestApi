@@ -1,0 +1,34 @@
+$purple_color: #6c63ff;
+$white_color: white;
+$purple_ligth_color: #C3C1E5;
+
+
+.wrapper {
+    width: 750px;
+    margin: 0 auto;
+
+    h1 {
+        color: black;
+    }
+
+    .header {
+
+        input {
+            outline: none;
+
+            &:nth-child(1) {
+                width: 256px;
+            }
+
+            &:nth-child(2) {
+                width: 389px;
+            }
+
+            &::placeholder {
+                color: $purple_ligth_color;
+            }
+        }
+    }
+
+
+}
