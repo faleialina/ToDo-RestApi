@@ -14,7 +14,7 @@ export default function Main() {
         try {
             const res = await axios.post('http://localhost:3000/task', task);
             console.log(res);
-            
+
             setListTasks(prev => [...prev, res.data]);
             setTask({ taitle: '', description: '' });
         } catch (err) {
@@ -48,9 +48,17 @@ export default function Main() {
             <div className={style.toDoListItems}>
                 {
                     listTasks.map(item => (
-                        <div className={style.todoItem}>
-                            <p className={style.itemContent}>{item.taitle}</p>
-                            <p className={style.itemContent}>{item.description}</p>
+                        <div className={style.todoItemWrap}>
+                            
+                            <div className={style.todoItem}>
+                                <p className={style.itemContent}>{item.taitle}</p>
+                                <p className={style.itemContent}>{item.description}</p>
+                                <button className={style.updateItem} onClick={() => { setIsUpdating(item._id) }}></button>
+                                <button className={style.deleteItem} onClick={() => { deleteItem(item._id) }}></button>
+                            </div>
+
+                            <div className={style.line}></div>
+
                         </div>
                     ))
                 }

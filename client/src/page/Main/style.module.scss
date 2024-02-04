@@ -47,36 +47,73 @@ $purple_ligth_color: #C3C1E5;
                 font: 500 16px Inter;
             }
         }
+
+        button {
+            @include input_btn(1px solid $purple_color, 5px, 10px 15px);
+            background-color: $purple_color;
+            color: $white_color;
+            font: 500 16px Kanit;
+            cursor: grab;
+        }
     }
 
-    button {
-        @include input_btn(1px solid $purple_color, 5px, 10px 15px);
-        background-color: $purple_color;
-        color: $white_color;
-        font: 500 16px Kanit;
-        cursor: grab;
-    }
+
 
     .toDoListItems {
         @include flex(column, center, 15px);
 
-        .todoItem {
-            @include flex(row, center, 15px);
+        .todoItemWrap {
+            .todoItem {
+                @include flex(row, center, 15px);
+                width: 520px;
 
-            p {
+                p {
 
-                &:nth-child(1) {
-                    width: 256px;
-                    color: black;
-                    font: 500 20px Kanit;
+                    &:nth-child(1) {
+                        width: 256px;
+                        color: black;
+                        font: 500 20px Kanit;
+                        text-transform: uppercase
+                    }
+
+                    &:nth-child(2) {
+                        width: 389px;
+                        color: $purple_ligth_color;
+                        font: 500 20px Kanit;
+                        text-transform: uppercase
+                    }
+
                 }
 
-                &:nth-child(2) {
-                    width: 389px;
-                    color: $purple_ligth_color;
-                    font: 500 20px Kanit;
+
+                .updateItem {
+                    background-image: url(./assets/Change.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 25px;
+                    height: 25px;
+                    cursor: grab;
+                    border: none;
+
                 }
 
+                .deleteItem {
+                    background-image: url(./assets/Delete.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 25px;
+                    height: 25px;
+                    cursor: grab;
+                    border: none;
+
+                }
+            }
+
+            .line {
+                background-image: url(./assets/Line.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 25px;
             }
         }
     }
