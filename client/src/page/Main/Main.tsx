@@ -35,6 +35,15 @@ export default function Main() {
         getItemsList();
     }, []);
 
+    const deleteItem = async (id) => {
+        try {
+            const res = await axios.delete(`http://localhost:3000/task/${id}`);
+            const newListItems = listTasks.filter(item => item._id !== id);
+            setListTasks(newListItems);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <div className={style.wrapper}>
@@ -49,7 +58,7 @@ export default function Main() {
                 {
                     listTasks.map(item => (
                         <div className={style.todoItemWrap}>
-                            
+
                             <div className={style.todoItem}>
                                 <p className={style.itemContent}>{item.taitle}</p>
                                 <p className={style.itemContent}>{item.description}</p>
