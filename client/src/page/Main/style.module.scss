@@ -24,6 +24,7 @@ $purple_ligth_color: #C3C1E5;
 
     h1 {
         color: black;
+        font: 500 26px Kanit;
     }
 
     .header {
@@ -43,6 +44,7 @@ $purple_ligth_color: #C3C1E5;
 
             &::placeholder {
                 color: $purple_ligth_color;
+                font: 500 16px Inter;
             }
         }
     }
@@ -51,8 +53,32 @@ $purple_ligth_color: #C3C1E5;
         @include input_btn(1px solid $purple_color, 5px, 10px 15px);
         background-color: $purple_color;
         color: $white_color;
+        font: 500 16px Kanit;
         cursor: grab;
     }
 
+    .toDoListItems {
+        @include flex(column, center, 15px);
+
+        .todoItem {
+            @include flex(row, center, 15px);
+
+            p {
+
+                &:nth-child(1) {
+                    width: 256px;
+                    color: black;
+                    font: 500 20px Kanit;
+                }
+
+                &:nth-child(2) {
+                    width: 389px;
+                    color: $purple_ligth_color;
+                    font: 500 20px Kanit;
+                }
+
+            }
+        }
+    }
 
 }
