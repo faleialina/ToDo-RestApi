@@ -67,16 +67,21 @@ $purple_ligth_color: #C3C1E5;
                 @include flex(row, center, 15px);
                 width: 520px;
 
+                .form_checkbox {
+                    width: 35px;
+                    height: 35px;
+                }
+
                 p {
 
-                    &:nth-child(1) {
+                    &:nth-child(2) {
                         width: 256px;
                         color: black;
                         font: 500 20px Kanit;
                         text-transform: uppercase
                     }
 
-                    &:nth-child(2) {
+                    &:nth-child(3) {
                         width: 389px;
                         color: $purple_ligth_color;
                         font: 500 20px Kanit;
@@ -87,35 +92,41 @@ $purple_ligth_color: #C3C1E5;
 
 
                 .updateItem {
-                    background-image: url(./assets/Change.png);
+                    background-image: url(./assets/Change.svg);
                     background-repeat: no-repeat;
                     background-size: contain;
-                    width: 25px;
-                    height: 25px;
+                    width: 18px;
+                    height: 18px;
                     cursor: grab;
                     border: none;
-
+                    background-color: white;
                 }
 
                 .deleteItem {
-                    background-image: url(./assets/Delete.png);
+                    background-image: url(./assets/Delete.svg);
                     background-repeat: no-repeat;
                     background-size: contain;
-                    width: 25px;
-                    height: 25px;
+                    width: 18px;
+                    height: 18px;
                     cursor: grab;
                     border: none;
-
+                    background-color: white;
                 }
             }
 
             .line {
-                background-image: url(./assets/Line.png);
+                background-image: url(./assets/Line.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 25px;
             }
         }
+    }
+
+    .updateForm {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 
 }
