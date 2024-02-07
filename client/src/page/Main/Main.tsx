@@ -73,9 +73,10 @@ export default function Main() {
         console.log(updated);
         return (
             <form className={style.updateForm} onSubmit={() => { updateItem() }} >
-                <input className={style.updateNewInput} type="text" name='taitle' placeholder="New note" onChange={changeUpdateItem} value={updateItemText?.taitle ?? updated[0].taitle} />
-                <input className={style.updateNewInput} type="text" name='description' placeholder="New description" onChange={changeUpdateItem} value={updateItemText?.description ?? updated[0].description} />
-
+                <input className={style.updateNewInput} type="text" name='taitle' placeholder="New note" onChange={changeUpdateItem}  />
+                <input className={style.updateNewInput} type="text" name='description' placeholder="New description" onChange={changeUpdateItem}  />
+                {/* <input className={style.updateNewInput} type="text" name='taitle' placeholder="New note" onChange={changeUpdateItem} value={updateItemText?.taitle ?? updated[0].taitle} />
+                <input className={style.updateNewInput} type="text" name='description' placeholder="New description" onChange={changeUpdateItem} value={updateItemText?.description ?? updated[0].description} /> */}
                 <button className={style.updateNewBtn} type="submit">Update</button>
             </form>
         );
