@@ -1,132 +1,132 @@
 $purple_color: #6c63ff;
 $white_color: white;
-$purple_ligth_color: #C3C1E5;
+$purple_ligth_color: #c3c1e5;
 
 @mixin flex($fd, $ai, $gap) {
-    display: flex;
-    flex-direction: $fd;
-    align-items: $ai;
-    gap: $gap;
+  display: flex;
+  flex-direction: $fd;
+  align-items: $ai;
+  gap: $gap;
 }
 
 @mixin input_btn($border, $br, $pad) {
-    display: block;
-    border: $border;
-    border-radius: $br;
-    padding: $pad
+  display: block;
+  border: $border;
+  border-radius: $br;
+  padding: $pad;
 }
 
-
 .wrapper {
-    @include flex(column, center, 0);
-    width: 750px;
-    margin: 0 auto;
+  @include flex(column, center, 0);
+  width: 750px;
+  margin: 0 auto;
 
-    h1 {
-        color: black;
-        font: 500 26px Kanit;
+  h1 {
+    color: black;
+    font: 500 26px Kanit;
+  }
+
+  .header {
+    @include flex(row, row, 15px);
+
+    input {
+      @include input_btn(1px solid $purple_color, 5px, 10px 15px);
+      outline: none;
+
+      &:nth-child(1) {
+        width: 256px;
+      }
+
+      &:nth-child(2) {
+        width: 389px;
+      }
+
+      &::placeholder {
+        color: $purple_ligth_color;
+        font: 500 16px Inter;
+      }
     }
 
-    .header {
-        @include flex(row, row, 15px);
+    button {
+      @include input_btn(1px solid $purple_color, 5px, 10px 15px);
+      background-color: $purple_color;
+      color: $white_color;
+      font: 500 16px Kanit;
+      cursor: grab;
+    }
+  }
 
-        input {
-            @include input_btn(1px solid $purple_color, 5px, 10px 15px);
-            outline: none;
+  .toDoListItems {
+    @include flex(column, center, 15px);
 
-            &:nth-child(1) {
-                width: 256px;
-            }
+    .todoItemWrap {
+      .todoItem {
+        @include flex(row, center, 15px);
+        width: 520px;
 
-            &:nth-child(2) {
-                width: 389px;
-            }
-
-            &::placeholder {
-                color: $purple_ligth_color;
-                font: 500 16px Inter;
-            }
+        .form_checkbox {
+          width: 35px;
+          height: 35px;
         }
 
-        button {
-            @include input_btn(1px solid $purple_color, 5px, 10px 15px);
-            background-color: $purple_color;
-            color: $white_color;
-            font: 500 16px Kanit;
-            cursor: grab;
+        p {
+          &:nth-child(2) {
+            width: 256px;
+            color: black;
+            font: 500 20px Kanit;
+            text-transform: uppercase;
+          }
+
+          &:nth-child(3) {
+            width: 389px;
+            color: $purple_ligth_color;
+            font: 500 20px Kanit;
+            text-transform: uppercase;
+          }
         }
-    }
-
-
-
-    .toDoListItems {
-        @include flex(column, center, 15px);
-
-        .todoItemWrap {
-            .todoItem {
-                @include flex(row, center, 15px);
-                width: 520px;
-
-                .form_checkbox {
-                    width: 35px;
-                    height: 35px;
-                }
-
-                p {
-
-                    &:nth-child(2) {
-                        width: 256px;
-                        color: black;
-                        font: 500 20px Kanit;
-                        text-transform: uppercase
-                    }
-
-                    &:nth-child(3) {
-                        width: 389px;
-                        color: $purple_ligth_color;
-                        font: 500 20px Kanit;
-                        text-transform: uppercase
-                    }
-
-                }
-
-
-                .updateItem {
-                    background-image: url(./assets/Change.svg);
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    width: 18px;
-                    height: 18px;
-                    cursor: grab;
-                    border: none;
-                    background-color: white;
-                }
-
-                .deleteItem {
-                    background-image: url(./assets/Delete.svg);
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    width: 18px;
-                    height: 18px;
-                    cursor: grab;
-                    border: none;
-                    background-color: white;
-                }
-            }
-
-            .line {
-                background-image: url(./assets/Line.svg);
-                background-repeat: no-repeat;
-                background-size: contain;
-                height: 25px;
-            }
+        .checked {
+          text-decoration: line-through;
+          color: rgb(77, 77, 77);
         }
-    }
+        .def {
+          color: black;
+        }
 
-    .updateForm {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
+        .updateItem {
+          background-image: url(./assets/Change.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 18px;
+          height: 18px;
+          cursor: grab;
+          border: none;
+          background-color: white;
+        }
 
+        .deleteItem {
+          background-image: url(./assets/Delete.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 18px;
+          height: 18px;
+          cursor: grab;
+          border: none;
+          background-color: white;
+        }
+      }
+
+      .line {
+        background-image: url(./assets/Line.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 25px;
+      }
+    }
+  }
+
+  .updateForm {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
