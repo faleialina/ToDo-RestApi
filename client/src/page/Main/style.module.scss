@@ -16,6 +16,9 @@ $purple_ligth_color: #c3c1e5;
   padding: $pad;
 }
 
+
+
+
 .wrapper {
   @include flex(column, center, 0);
   width: 750px;
@@ -55,6 +58,33 @@ $purple_ligth_color: #c3c1e5;
       cursor: grab;
     }
   }
+
+
+  .empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 40px;
+
+    .image {
+        background-image: url('./assets/Detective-check-footprint\ 1.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 221px;
+        height: 149px;
+    }
+
+    h2 {
+        color: rgb(37, 37, 37);
+        font: 400 20px Kanit;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}
+
 
   .toDoListItems {
     @include flex(column, center, 15px);
