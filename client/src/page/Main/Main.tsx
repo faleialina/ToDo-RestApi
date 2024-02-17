@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { iTask } from "../../interfaces";
+import Modal from "../Modal/Modal";
 import style from "./style.module.scss";
 
 export default function Main() {
   const [task, setTask] = useState({ taitle: "", description: "" });
   const [listTasks, setListTasks] = useState<iTask[]>([]);
-  const [isUpdating, setIsUpdating] = useState("");
-  const [updateItemText, setUpdateItemText] = useState({});
+  // const [isUpdating, setIsUpdating] = useState("");
+  // const [updateItemText, setUpdateItemText] = useState({});
+  const [modalInfoIsOpen, setModalInfoOpen] = useState(false)
 
 
   function swapCheckbox(index: number) {
@@ -61,56 +63,56 @@ export default function Main() {
     }
   };
 
-  function changeUpdateItem(e: any) {
-    setUpdateItemText({ ...updateItemText, [e.target.name]: e.target.value });
-  }
+  // function changeUpdateItem(e: any) {
+  //   setUpdateItemText({ ...updateItemText, [e.target.name]: e.target.value });
+  // }
 
-  const updateItem = async () => {
-    try {
-      const res = await axios.put(
-        `http://localhost:3000/task/${isUpdating}`,
-        updateItemText
-      );
-      console.log(res.data);
-      setListTasks((prev) => [...prev, res.data]);
-      setIsUpdating("");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const updateItem = async () => {
+  //   try {
+  //     const res = await axios.put(
+  //       `http://localhost:3000/task/${isUpdating}`,
+  //       updateItemText
+  //     );
+  //     console.log(res.data);
+  //     setListTasks((prev) => [...prev, res.data]);
+  //     setIsUpdating("");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  const renderUpdateForm = () => {
-    const updated = listTasks.filter((item: any) => item._id === isUpdating);
-    console.log(updated);
-    return (
-      <form
-        className={style.updateForm}
-        onSubmit={() => {
-          updateItem();
-        }}
-      >
-        <input
-          className={style.updateNewInput}
-          type="text"
-          name="taitle"
-          placeholder="New note"
-          onChange={changeUpdateItem}
-        />
-        <input
-          className={style.updateNewInput}
-          type="text"
-          name="description"
-          placeholder="New description"
-          onChange={changeUpdateItem}
-        />
-        {/* <input className={style.updateNewInput} type="text" name='taitle' placeholder="New note" onChange={changeUpdateItem} value={updateItemText?.taitle ?? updated[0].taitle} />
-                <input className={style.updateNewInput} type="text" name='description' placeholder="New description" onChange={changeUpdateItem} value={updateItemText?.description ?? updated[0].description} /> */}
-        <button className={style.updateNewBtn} type="submit">
-          Update
-        </button>
-      </form>
-    );
-  };
+  // const renderUpdateForm = () => {
+  //   const updated = listTasks.filter((item: any) => item._id === isUpdating);
+  //   console.log(updated);
+  //   return (
+  //     <form
+  //       className={style.updateForm}
+  //       onSubmit={() => {
+  //         updateItem();
+  //       }}
+  //     >
+  //       <input
+  //         className={style.updateNewInput}
+  //         type="text"
+  //         name="taitle"
+  //         placeholder="New note"
+  //         onChange={changeUpdateItem}
+  //       />
+  //       <input
+  //         className={style.updateNewInput}
+  //         type="text"
+  //         name="description"
+  //         placeholder="New description"
+  //         onChange={changeUpdateItem}
+  //       />
+  //       {/* <input className={style.updateNewInput} type="text" name='taitle' placeholder="New note" onChange={changeUpdateItem} value={updateItemText?.taitle ?? updated[0].taitle} />
+  //               <input className={style.updateNewInput} type="text" name='description' placeholder="New description" onChange={changeUpdateItem} value={updateItemText?.description ?? updated[0].description} /> */}
+  //       <button className={style.updateNewBtn} type="submit">
+  //         Update
+  //       </button>
+  //     </form>
+  //   );
+  // };
  
 
   return (
@@ -138,9 +140,9 @@ export default function Main() {
         {listTasks.map((item, index) => (
           <div className={style.todoItemWrap}>
             <div className={style.todoItem}>
-              {isUpdating === item._id ? (
+              {/* {isUpdating === item._id ? (
                 renderUpdateForm()
-              ) : (
+              ) : ( */}
                 <>
                   <input
                     type="checkbox"
@@ -154,12 +156,19 @@ export default function Main() {
                     {item.taitle}
                   </p>
                   <p className={style.itemContent}>{item.description}</p>
-                  <button
+                  {/* <button
                     className={style.updateItem}
                     onClick={() => {
                       setIsUpdating(item._id);
                     }}
+                  ></button> */}
+                  <button
+                    className={style.updateItem}
+                    onClick={() => {
+                      setModalInfoOpen(true)
+                    }}
                   ></button>
+                   <Modal isOpen={modalInfoIsOpen} onClose={() => setModalInfoOpen(false)} />
                   <button
                     className={style.deleteItem}
                     onClick={() => {
@@ -167,7 +176,7 @@ export default function Main() {
                     }}
                   ></button>
                 </>
-              )}{" "}
+              {/* )}{" "} */}
             </div>
 
             <div className={style.line}></div>
