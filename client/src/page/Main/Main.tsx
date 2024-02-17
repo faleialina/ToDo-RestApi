@@ -25,9 +25,6 @@ export default function Main() {
     try {
       const res = await axios.post("http://localhost:3000/task", task);
       console.log(res);
-
-      //   setListTasks((prev: any) => [...prev, res.data]);
-      //   setTask({ taitle: "", description: "" });
     } catch (err) {
       console.log(err);
     }
@@ -35,15 +32,13 @@ export default function Main() {
   const getItemsList = async () => {
     try {
       const res = await axios.get("http://localhost:3000/task");
-
       const listTaskCheck = res.data.map((el: iTask) => ({
         ...el,
         isCheck: false,
       }));
-      //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       console.log(listTaskCheck);
       setListTasks(listTaskCheck);
-      console.log(listTasks);
+      console.log(listTasks); //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     } catch (err) {
       console.log(err);
     }
@@ -159,12 +154,18 @@ export default function Main() {
                     />
                     <p
                       className={
-                        listTasks[0].isCheck ? style.checked : style.def
+                        listTasks[index].isCheck ? style.checked : style.def
                       }
                     >
                       {item.taitle}
                     </p>
-                    <p className={style.itemContent}>{item.description}</p>
+                    <p
+                      className={
+                        listTasks[index].isCheck ? style.checked : style.def
+                      }
+                    >
+                      {item.description}
+                    </p>
                     {/* <button
                     className={style.updateItem}
                     onClick={() => {

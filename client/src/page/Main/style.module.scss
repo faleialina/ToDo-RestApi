@@ -16,9 +16,6 @@ $purple_ligth_color: #c3c1e5;
   padding: $pad;
 }
 
-
-
-
 .wrapper {
   @include flex(column, center, 0);
   width: 750px;
@@ -59,7 +56,6 @@ $purple_ligth_color: #c3c1e5;
     }
   }
 
-
   .empty {
     display: flex;
     flex-direction: column;
@@ -70,21 +66,20 @@ $purple_ligth_color: #c3c1e5;
     margin-top: 40px;
 
     .image {
-        background-image: url('./assets/Detective-check-footprint\ 1.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 221px;
-        height: 149px;
+      background-image: url("./assets/Detective-check-footprint\ 1.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 221px;
+      height: 149px;
     }
 
     h2 {
-        color: rgb(37, 37, 37);
-        font: 400 20px Kanit;
-        text-transform: capitalize;
-        text-align: center;
+      color: rgb(37, 37, 37);
+      font: 400 20px Kanit;
+      text-transform: capitalize;
+      text-align: center;
     }
-}
-
+  }
 
   .toDoListItems {
     @include flex(column, center, 15px);
@@ -99,7 +94,23 @@ $purple_ligth_color: #c3c1e5;
           height: 35px;
         }
 
-        p {
+        .checked {
+          text-decoration: line-through;
+          &:nth-child(2) {
+            width: 256px;
+            color: rgb(203, 50, 50);
+            font: 500 20px Kanit;
+            text-transform: uppercase;
+          }
+
+          &:nth-child(3) {
+            width: 389px;
+            color: $purple_ligth_color;
+            font: 500 20px Kanit;
+            text-transform: uppercase;
+          }
+        }
+        .def {
           &:nth-child(2) {
             width: 256px;
             color: black;
@@ -113,13 +124,6 @@ $purple_ligth_color: #c3c1e5;
             font: 500 20px Kanit;
             text-transform: uppercase;
           }
-        }
-        .checked {
-          text-decoration: line-through;
-          color: rgb(77, 77, 77);
-        }
-        .def {
-          color: black;
         }
 
         .updateItem {
