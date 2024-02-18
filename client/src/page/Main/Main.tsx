@@ -7,9 +7,13 @@ import style from "./style.module.scss";
 export default function Main() {
   const [task, setTask] = useState({ taitle: "", description: "" });
   const [listTasks, setListTasks] = useState<iTask[]>([]);
-  // const [isUpdating, setIsUpdating] = useState("");
-  // const [updateItemText, setUpdateItemText] = useState({});
-  const [modalInfoIsOpen, setModalInfoOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [active, setActive] = useState({
+    _id: "",
+    taitle: "",
+    description: "",
+    isCheck: false,
+  });
 
   function swapCheckbox(index: number) {
     const updatedTasks = [...listTasks];
@@ -58,57 +62,6 @@ export default function Main() {
     }
   };
 
-  // function changeUpdateItem(e: any) {
-  //   setUpdateItemText({ ...updateItemText, [e.target.name]: e.target.value });
-  // }
-
-  // const updateItem = async () => {
-  //   try {
-  //     const res = await axios.put(
-  //       `http://localhost:3000/task/${isUpdating}`,
-  //       updateItemText
-  //     );
-  //     console.log(res.data);
-  //     setListTasks((prev) => [...prev, res.data]);
-  //     setIsUpdating("");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // const renderUpdateForm = () => {
-  //   const updated = listTasks.filter((item: any) => item._id === isUpdating);
-  //   console.log(updated);
-  //   return (
-  //     <form
-  //       className={style.updateForm}
-  //       onSubmit={() => {
-  //         updateItem();
-  //       }}
-  //     >
-  //       <input
-  //         className={style.updateNewInput}
-  //         type="text"
-  //         name="taitle"
-  //         placeholder="New note"
-  //         onChange={changeUpdateItem}
-  //       />
-  //       <input
-  //         className={style.updateNewInput}
-  //         type="text"
-  //         name="description"
-  //         placeholder="New description"
-  //         onChange={changeUpdateItem}
-  //       />
-  //       {/* <input className={style.updateNewInput} type="text" name='taitle' placeholder="New note" onChange={changeUpdateItem} value={updateItemText?.taitle ?? updated[0].taitle} />
-  //               <input className={style.updateNewInput} type="text" name='description' placeholder="New description" onChange={changeUpdateItem} value={updateItemText?.description ?? updated[0].description} /> */}
-  //       <button className={style.updateNewBtn} type="submit">
-  //         Update
-  //       </button>
-  //     </form>
-  //   );
-  // };
-
   return (
     <>
       <div className={style.wrapper}>
@@ -140,9 +93,6 @@ export default function Main() {
             {listTasks.map((item, index) => (
               <div className={style.todoItemWrap}>
                 <div className={style.todoItem}>
-                  {/* {isUpdating === item._id ? (
-                renderUpdateForm()
-              ) : ( */}
                   <>
                     <input
                       type="checkbox"
@@ -166,22 +116,17 @@ export default function Main() {
                     >
                       {item.description}
                     </p>
-                    {/* <button
-                    className={style.updateItem}
-                    onClick={() => {
-                      setIsUpdating(item._id);
-                    }}
-                  ></button> */}
+
                     <button
                       className={style.updateItem}
                       onClick={() => {
-                        setModalInfoOpen(true);
+                        setOpen(true);
+                        setActive(listTasks[index]);
                       }}
                     ></button>
-                    <Modal
-                      isOpen={modalInfoIsOpen}
-                      onClose={() => setModalInfoOpen(false)}
-                    />
+
+                    {open ? <Modal setOpen={setOpen} task={active} /> : null}
+
                     <button
                       className={style.deleteItem}
                       onClick={() => {
@@ -189,7 +134,6 @@ export default function Main() {
                       }}
                     ></button>
                   </>
-                  {/* )}*/}
                 </div>
 
                 <div className={style.line}></div>
