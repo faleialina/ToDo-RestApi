@@ -1,13 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import { iTask } from "../../interfaces";
-
+import { ModalProps } from "../../interfaces";
 import style from "./style.module.scss";
-
-interface ModalProps {
-  setOpen: (arg: boolean) => void;
-  task: iTask;
-}
 
 export default function Modal({ setOpen, task }: ModalProps) {
   const [updateItemText, setUpdateItemText] = useState({

@@ -47,6 +47,7 @@ export default function Main() {
       console.log(err);
     }
   };
+
   useEffect(() => {
     getItemsList();
   }, []);
