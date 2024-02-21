@@ -16,6 +16,11 @@ $purple_ligth_color: #c3c1e5;
   padding: $pad;
 }
 
+@mixin img() {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .wrapper {
   @include flex(column, center, 0);
   width: 750px;
@@ -67,8 +72,7 @@ $purple_ligth_color: #c3c1e5;
 
     .image {
       background-image: url("./assets/Detective-check-footprint\ 1.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
+      @include img();
       width: 221px;
       height: 149px;
     }
@@ -128,31 +132,28 @@ $purple_ligth_color: #c3c1e5;
 
         .updateItem {
           background-image: url(./assets/Change.svg);
-          background-repeat: no-repeat;
-          background-size: contain;
+          @include img();
           width: 18px;
           height: 18px;
           cursor: grab;
           border: none;
-          background-color: white;
+          background-color: $white_color;
         }
 
         .deleteItem {
           background-image: url(./assets/Delete.svg);
-          background-repeat: no-repeat;
-          background-size: contain;
+          @include img();
           width: 18px;
           height: 18px;
           cursor: grab;
           border: none;
-          background-color: white;
+          background-color: $white_color;
         }
       }
 
       .line {
         background-image: url(./assets/Line.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
+        @include img();
         height: 25px;
       }
     }
